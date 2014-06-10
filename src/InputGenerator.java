@@ -21,7 +21,7 @@ public class InputGenerator {
     public double [][]aij;
     public int k;
     
-    private InputGenerator(int param)
+    public InputGenerator(int param)
     {
         nodes = 40;
         k = param;
@@ -47,7 +47,10 @@ public class InputGenerator {
         {
             for(int j=0;j<nodes;j++)
             {
-                bij[i][j] = rand.nextInt(4);
+                if(i==j)
+                    bij[i][j] = 0;
+                else
+                    bij[i][j] = rand.nextInt(4);
             }
         }
         
