@@ -43,9 +43,9 @@ class Edge
 
 public class Dijkstra
 {
-    public static void computePaths(Vertex source)
+    public void computePaths(Vertex source)
     {
-        source.minDistance = 0.;
+        source.minDistance = 0;
         PriorityQueue<Vertex> vertexQueue = new PriorityQueue<Vertex>();
       	vertexQueue.add(source);
 
@@ -66,9 +66,11 @@ public class Dijkstra
 		}
             }
         }
+        int c=0;
+        
     }
 
-    public static List<Vertex> getShortestPathTo(Vertex target)
+    public List<Vertex> getShortestPathTo(Vertex target)
     {
         List<Vertex> path = new ArrayList<Vertex>();
         for (Vertex vertex = target; vertex != null; vertex = vertex.previous)
@@ -77,6 +79,7 @@ public class Dijkstra
         return path;
     }
 
+    /*
     public static void main(String[] args)
     {
         Vertex v0 = new Vertex("Redvile");
@@ -98,14 +101,15 @@ public class Dijkstra
 	v4.adjacencies = new Edge[]{ new Edge(v1, 7),
                                new Edge(v3, 2) };
 	Vertex[] vertices = { v0, v1, v2, v3, v4 };
-        computePaths(v0);
+        //computePaths(v0);
         for (Vertex v : vertices)
 	{
 	    System.out.println("Distance to " + v + ": " + v.minDistance);
 	    List<Vertex> path = getShortestPathTo(v);
 	    System.out.println("Path: " + path);
 	}
-    }
+    }*/
 }
+
 
 
