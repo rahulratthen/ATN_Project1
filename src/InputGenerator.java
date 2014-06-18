@@ -57,7 +57,7 @@ public class InputGenerator {
         //generate aij
         for(int i=0;i<nodes;i++)
         {
-            HashSet randIndices = getRandomIndices();
+            HashSet randIndices = getRandomIndices(i);
             for(int j=0;j<nodes;j++)
             {
                 if(randIndices.contains(new Integer(j)))
@@ -70,13 +70,15 @@ public class InputGenerator {
     }
     
     
-    public HashSet getRandomIndices()
+    public HashSet getRandomIndices(int i)
     {
         HashSet<Integer> hs = new HashSet<Integer>();
         Random rand = new Random();
         do
         {
             int index = rand.nextInt(40);
+            if(index==i)
+                continue;
             if(!hs.contains(new Integer(index)))
                 hs.add(new Integer(index));
         }while(hs.size()<k);
